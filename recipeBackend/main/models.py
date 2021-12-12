@@ -72,6 +72,7 @@ class Recipe(models.Model):
     class Meta:
         ordering=['recipe_added_at',]
 
+
 #FAQ's will be general for v1
 class Faqs(models.Model):
     question_id = models.AutoField(primary_key=True)
@@ -79,6 +80,7 @@ class Faqs(models.Model):
     answer=models.TextField(null=False,blank=False)
     def __str__(self):
         return self.question
+
 
 class Ingredients(models.Model):
     ingredient_id   = models.AutoField(primary_key=True)

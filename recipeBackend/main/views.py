@@ -32,7 +32,7 @@ class RecipeApi(generics.ListCreateAPIView): #will have to use FBV to set the ow
             serilazer.save()
             print(serilazer)
             return Response(serilazer.data, status=status.HTTP_201_CREATED)
-        return HttpResponse('Fucked up')
+        return HttpResponse('Recipe Api')
     
 
 
