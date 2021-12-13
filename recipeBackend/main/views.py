@@ -35,7 +35,6 @@ class RecipeApi(generics.ListCreateAPIView): #will have to use FBV to set the ow
         return HttpResponse('Recipe Api')
     
 
-
 @receiver(post_save, sender =Recipe)
 def create_recipe(sender,instance = None, created = False, **kwargs):
     if created:
@@ -46,6 +45,7 @@ def create_recipe(sender,instance = None, created = False, **kwargs):
 class ReciepeCreateApi(generics.RetrieveUpdateDestroyAPIView):
     queryset=Recipe.objects.all()
     serializer_class = RecipeSerializer
+
 """
 @api_view(['GET', 'POST'])
 def customer_list(request):
