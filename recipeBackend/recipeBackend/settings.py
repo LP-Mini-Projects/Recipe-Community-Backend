@@ -32,7 +32,7 @@ DEBUG = True
 if os.getcwd() == '/app':
     DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost','recipe-community-api.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','localhost','recipe-community-api.herokuapp.com','recipeCommunityApi.pythonanywhere.com']
 
 
 # Application definition
