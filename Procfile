@@ -1,1 +1,1 @@
-web: gunicorn recipeBackend.wsgi 
+web: gunicorn --pythonpath recipeBackend recipeBackend.wsgi 
