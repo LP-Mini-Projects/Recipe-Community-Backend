@@ -32,9 +32,8 @@ class RecipeApi(generics.ListCreateAPIView): #will have to use FBV to set the ow
             serilazer.save()
             print(serilazer)
             return Response(serilazer.data, status=status.HTTP_201_CREATED)
-        return HttpResponse('Fucked up')
+        return HttpResponse('Recipe Api')
     
-
 
 @receiver(post_save, sender =Recipe)
 def create_recipe(sender,instance = None, created = False, **kwargs):
@@ -46,6 +45,7 @@ def create_recipe(sender,instance = None, created = False, **kwargs):
 class ReciepeCreateApi(generics.RetrieveUpdateDestroyAPIView):
     queryset=Recipe.objects.all()
     serializer_class = RecipeSerializer
+
 """
 @api_view(['GET', 'POST'])
 def customer_list(request):

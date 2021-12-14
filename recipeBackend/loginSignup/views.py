@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render
 from django.urls import reverse
 from django.http import HttpResponse
@@ -42,7 +43,8 @@ def reqistration_view(request):
             # email verification
             current_site = get_current_site(request).domain
             relative_link = reverse('verifyEmail')
-            absurl = 'http://' + current_site + relative_link + "?token="+str(token)
+            #while integration with frontend change relative_link to settings.FRONT_END_HOST
+            absurl = current_site + relative_link + "?token="+str(token) #to integrate with frontend
             email_body = 'Hi' + my_user.username + 'Use link below to verify your email \n' + absurl
             data_email = {'email_body': email_body, 'to_email': my_user.email, 'email_subject':'Verify your email'}
             Util.send_email(data_email)
