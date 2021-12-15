@@ -37,6 +37,8 @@ ALLOWED_HOSTS = ['127.0.0.1','localhost','recipe-community-api.herokuapp.com','r
 
 # Application definition
 
+CORS_ALLOW_ALL_ORIGINS = True
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -54,6 +56,10 @@ INSTALLED_APPS = [
 
     #added SwaggerDocs
     'drf_yasg',
+
+    #corsheaders
+    'corsheaders',
+
 ]
 
 REST_FRAMEWORK = {
@@ -71,10 +77,11 @@ MIDDLEWARE = [
     #whitenoise for staticfiles
     'whitenoise.middleware.WhiteNoiseMiddleware',
 
-    #Cors addition
-    # 'corsheaders.middleware.CorsMiddleware',
-
     'django.contrib.sessions.middleware.SessionMiddleware',
+
+    # Cors addition
+    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
