@@ -39,6 +39,8 @@ def reqistration_view(request):
         data = {}
         if serializer.is_valid():
             my_user = serializer.save()
+            data['response'] = "successfully registered a new user"
+            data['email'] = my_user.email
             token = Token.objects.get(user = my_user).key
             # email verification
             current_site = get_current_site(request).domain
@@ -63,7 +65,7 @@ def verifyEmail(request): #what to do if user clicks on link again as now the to
     except:
         content = {'detail': 'User already activated!'}
         return Response(content, status = status.HTTP_200_OK)
-    data['response'] = "successfully registered a new user"
+    data['response'] = "successfully verified a new user"
     data['username'] = user.username
     data['email'] = user.email
     data['token'] = token
